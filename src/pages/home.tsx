@@ -139,7 +139,6 @@ export default function Home() {
                 src={thread.user.photo_profile}
                 alt="profile"
                 className="w-10 h-10 rounded-full object-cover"
-                style={{ borderRadius: "6px 6px 6px 6px" }}
               />
               <div className="flex-1">
                 <div className="flex justify-between text-sm text-gray-400">
@@ -157,6 +156,7 @@ export default function Home() {
                     src={thread.image}
                     alt="post"
                     className="rounded-lg mt-2 h-auto w-full xl:w-[95%] object-cover"
+                    style={{ borderRadius: "6px 6px 6px 6px" }}
                   />
                 )}
                 <div className="flex space-x-4 text-gray-500 text-sm mt-3">
