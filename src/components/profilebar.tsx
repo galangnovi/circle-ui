@@ -88,7 +88,7 @@ export default function Profilebar() {
     </div>
 
     
-    <div className="px-4 pb-4 text-sm flex flex-col items-start">
+    <div className="px-4 pb-4 text-sm flex flex-col items-start" style={{ borderRadius: "0 0 6px 6px" }}>
        <div className="flex flex-col items-start">
           <h3 className="text-white font-bold text-base leading-5">✨ {profile.full_name} ✨</h3>
           <p className="text-gray-400 text-sm">@{profile.username}</p>
