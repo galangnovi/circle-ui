@@ -133,12 +133,13 @@ export default function Home() {
 
       <div className="space-y-6 w-full">
         {threads.map((thread) => (
-          <div key={thread.id} className="bg-[#1a1a1a] p-4 rounded-lg " style={{ borderRadius: "4px 4px 0 0" }}>
+          <div key={thread.id} className="bg-[#1a1a1a] p-4 rounded-lg " style={{ borderRadius: "6px 6px 6px 6px" }}>
             <div className="flex items-start space-x-3">
               <img
                 src={thread.user.photo_profile}
                 alt="profile"
                 className="w-10 h-10 rounded-full object-cover"
+                style={{ borderRadius: "6px 6px 6px 6px" }}
               />
               <div className="flex-1">
                 <div className="flex justify-between text-sm text-gray-400">

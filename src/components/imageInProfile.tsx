@@ -18,7 +18,7 @@ export default function ImageThreads() {
                 <div key={I.id} className="w-[32%] aspect-square mb-5">
                     <img src={I.image} 
                     className="w-full h-full object-cover rounded-md"
-                    style={{ borderRadius: "4px 4px 4px 4px" }}
+                    style={{ borderRadius: "5px 5px 5px 5px" }}
                     alt="" />
                     <div className=" flex justify-center gap-3 -mt-7">
                         <p>{I.likes_count} ❤️</p>

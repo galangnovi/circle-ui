@@ -220,7 +220,7 @@ export default function ThreadsDetailPage() {
         </div>
       </div>
 
-      <div className="flex justify-between items-center w-full rounded-lg mb-6" style={{ borderRadius: "4px 4px 4px 4px" }}>
+      <div className="flex justify-between items-center w-full rounded-lg mb-6" style={{ borderRadius: "6px 6px 6px 6px" }}>
         <div className="flex items-center w-full">
           <img
             src={profile.photo_profile}
@@ -241,7 +241,7 @@ export default function ThreadsDetailPage() {
             onChange={handleImageChange}
           />
           {imagePreview && (
-            <div className="w-full max-h-[300px] overflow-hidden rounded-md">
+            <div className="w-full max-h-[300px] overflow-hidden rounded-md" style={{ borderRadius: "6px 6px 6px 6px" }}>
               <img src={imagePreview} alt="Preview" className="w-full h-auto object-contain" />
             </div>
           )}
