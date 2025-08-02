@@ -49,7 +49,7 @@ export default function Register() {
             <h1 className=" !text-5xl font-bold text-green-500 mb-4 text-center">circle</h1>
             <h2 className=" !text-2xl text-white text-center mb-3 font-semibold">Create Your account</h2>
         </div>
-        <form onSubmit={handleRegister} className="space-y-4">
+        <form onSubmit={handleRegister} className="space-y-4 p-6">
           <div>
             <input
               type="text"
