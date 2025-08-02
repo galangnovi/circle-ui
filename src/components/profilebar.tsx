@@ -121,6 +121,7 @@ export default function Profilebar() {
               </div>
             
                 <Button
+                    className="!bg-gray-800"
                     variant={r.is_following || tempFollowStatus[r.id] ? "secondary" : "secondary"}
                     onClick={() => handleFollowToggle(r.id, r.is_following || tempFollowStatus[r.id])}
                   >
