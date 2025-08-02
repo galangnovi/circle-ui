@@ -34,7 +34,7 @@ export default function Navbar() {
       </Dialog>
       </div>
       
-      <div className="mt-10 flex items-center gap-2 sm:!text-xl cursor-pointer hover:text-red-400" onClick={() => logout()}>
+      <div className="mt-10 mb-6 flex items-center gap-2 sm:!text-xl cursor-pointer hover:text-red-400" onClick={() => logout()}>
         <LogOut /> Logout
       </div>
     </aside>

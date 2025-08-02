@@ -95,7 +95,7 @@ export function DialogEditProfile() {
             <div className=" hidden lg:block h-20 overflow-hidden w-full">
             { coverPreview ? <img src={coverPreview}
               alt="cover" className="w-full rounded-t-xl"/>  : <div> {profile.cover_photo ? <img src={`http://localhost:3000/uploads/${encodeURIComponent(String(profile.cover_photo))}`}
-              alt="cover" className=" w-full rounded-t-xl"/> : <div className="h-20 rounded-t-xl bg-gradient-to-r from-green-400 to-yellow-300"></div>} </div>}
+              alt="cover" className=" w-full rounded-t-xl" style={{ borderRadius: "6px 6px 0 0" }}/> : <div className="h-20 rounded-t-xl bg-gradient-to-r from-green-400 to-yellow-300" style={{ borderRadius: "6px 0 6px 0" }}></div>} </div>}
             </div>
         <div className="px-4 pb-4 -mt-10 flex items-center justify-between">
           <div className=" hidden lg:block flex items-center space-x-3">

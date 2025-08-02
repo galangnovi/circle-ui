@@ -68,6 +68,7 @@ export function Dialogform() {
                     src={`${user?.avatar}`}
                     alt="profile"
                     className="w-10 h-10 rounded-full object-cover mr-2"
+                    style={{ borderRadius: "6px 6px 6px 6px" }}
                 />
                 <textarea
                     className="w-full bg-transparent text-white placeholder-gray-400 outline-none whitespace-normal break-words resize-none"

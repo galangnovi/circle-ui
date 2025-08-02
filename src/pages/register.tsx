@@ -60,6 +60,7 @@ export default function Register() {
               onChange={(e) => setUserName(e.target.value)}
               required
               className="w-full px-4 py-2 bg-transparent text-white placeholder:text-gray-500 rounded-md border border-gray-600 focus:outline-none focus:ring-2 focus:ring-green-500"
+              style={{ borderRadius: "6px 6px 6px 6px" }}
             />
           </div>
           <div>
@@ -71,6 +72,7 @@ export default function Register() {
               onChange={(e) => setFullname(e.target.value)}
               required
               className="w-full px-4 py-2 bg-transparent text-white placeholder:text-gray-500 rounded-md border border-gray-600 focus:outline-none focus:ring-2 focus:ring-green-500"
+              style={{ borderRadius: "6px 6px 6px 6px" }}
             />
           </div>
           <div>
@@ -82,6 +84,7 @@ export default function Register() {
               onChange={(e) => setEmail(e.target.value)}
               required
               className="w-full px-4 py-2 bg-transparent text-white placeholder:text-gray-500 rounded-md border border-gray-600 focus:outline-none focus:ring-2 focus:ring-green-500"
+              style={{ borderRadius: "6px 6px 6px 6px" }}
             />
           </div>
           <div>
@@ -93,6 +96,7 @@ export default function Register() {
               onChange={(e) => setPassword(e.target.value)}
               required
               className="w-full px-4 py-2 bg-transparent text-white placeholder:text-gray-500 rounded-md border border-gray-600 focus:outline-none focus:ring-2 focus:ring-green-500"
+              style={{ borderRadius: "6px 6px 6px 6px" }}
             />
           </div>
           {errMsg && <p className="text-red-700">{errMsg}</p>}

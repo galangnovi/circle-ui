@@ -59,6 +59,7 @@ export default function LoginPage() {
               placeholder="email/userName *"
               required
               className="w-full px-4 py-2 bg-transparent text-white placeholder:text-gray-500 rounded-md border border-gray-600 focus:outline-none focus:ring-2 focus:ring-green-500"
+              style={{ borderRadius: "6px 6px 6px 6px" }}
             />
           </div>
 
@@ -70,6 +71,7 @@ export default function LoginPage() {
               placeholder="Password *"
               required
               className="w-full px-4 py-2 bg-transparent text-white placeholder:text-gray-500 rounded-md border border-gray-600 focus:outline-none focus:ring-2 focus:ring-green-500"
+              style={{ borderRadius: "6px 6px 6px 6px" }}
             />
           </div>
 
