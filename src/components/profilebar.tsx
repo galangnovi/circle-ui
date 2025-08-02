@@ -64,7 +64,7 @@ export default function Profilebar() {
   return (
     <aside className=" hidden lg:block w-[26%] px-4 py-6 text-white space-y-6 fixed right-0 top-0">
   
-  <div className="bg-[#16181c] rounded-xl shadow-md overflow-hidden relative">
+  <div className="bg-[#16181c] !rounded-xl shadow-md !overflow-hidden relative">
     <div className="h-20 overflow-hidden">
         {profile.cover_photo ? <img src={`${profile.cover_photo}`}
           alt="cover" className="h-fit w-full"/> : <div className="h-full bg-gradient-to-r from-green-400 to-yellow-300"></div> }
