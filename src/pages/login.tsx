@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { api } from "../services/api";
 import { useAuth } from "../hooks/auth";
 import { useNavigate } from "react-router-dom";
 
 export default function LoginPage() {
-  const {setUser, login}= useAuth()
+  const {setUser, user, login}= useAuth()
   const [identifier, setIdentifier] = useState(""); 
   const [password, setPassword] = useState("");
   const [errMsg, setErrorMsg]= useState("")
@@ -38,6 +38,10 @@ export default function LoginPage() {
       setErrorMsg(msg);
     }
     }
+
+    useEffect(() => {
+      setIdentifier(user?.email || "");
+    }, [user]);
 
   return (
     <div className="min-h-screen flex items-center justify-center">

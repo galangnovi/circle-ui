@@ -4,7 +4,7 @@ import { api } from "../services/api";
 import { useAuth } from "../hooks/auth";
 
 export default function Register() {
-  const {setUser, login}= useAuth()
+  const {setUser}= useAuth()
   const [username, setUserName] = useState("")
   const [fullname, setFullname] = useState("")
   const [email, setEmail] = useState("")
@@ -30,10 +30,8 @@ export default function Register() {
                   email: res.data.data.email,
                   avatar: null
           }
-  
-          login(res.data.data.token)
           setUser(user); 
-          navigate("/")
+          navigate("/login")
           } else {
               setErrorMsg ("username / password kososng")
           }

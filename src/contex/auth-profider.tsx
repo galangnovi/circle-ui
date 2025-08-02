@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AuthContext } from "./auth-contex";
 import type { User } from "./auth-contex";
+import { api } from "../services/api";
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [token, setToken] = useState<string | null>(() => localStorage.getItem("token"));
@@ -14,6 +15,16 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setToken(token);
   };
 
+  useEffect(() => {
+  const fetchUserActive = async () => {
+    
+      const res = await api.get("/auth", { withCredentials: true });
+      const user:any = res.data
+        login(user)
+  };
+  fetchUserActive();
+}, []);
+
   const setUserAndSave = (user: User) => {
     localStorage.setItem("user", JSON.stringify(user));
     setUser(user);
@@ -22,10 +33,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const logout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
+    api.get("/logout", { withCredentials: true })
     setToken(null);
     setUser(null);
   };
-  console.log(user, token)
 
   return (
     <AuthContext.Provider value={{ token, login, logout, user, setUser: setUserAndSave }}>
