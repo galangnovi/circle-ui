@@ -36,7 +36,6 @@ export default function Register() {
               setErrorMsg ("username / password kososng")
           }
       } catch (error: any) {
-        // Tangkap error dari backend
         const msg = error.response?.data?.message || "Login gagal";
         setErrorMsg(msg);
       }
@@ -102,7 +101,7 @@ export default function Register() {
           {errMsg && <p className="text-red-700">{errMsg}</p>}
           <button
             type="submit"
-            className="w-full py-2 !rounded-full !bg-green-600 hover:bg-green-700 transition"
+            className="w-full py-2 rounded-full !bg-green-600 hover:bg-green-700 transition"
           >
             Register
           </button>
