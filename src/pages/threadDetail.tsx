@@ -1,5 +1,4 @@
 import { addReplyLike, addThreadLike, removeReplyLike, removeThreadLike, setReplyLikes, setThreadLikes } from '@/features/likes/likesSlice';
-import { useAuth } from '@/hooks/auth';
 import { useThreadSocket } from '@/hooks/useSocket';
 import { api } from '@/services/api';
 import type { RootState } from '@/store';
@@ -11,13 +10,10 @@ import { useNavigate, useParams } from 'react-router-dom';
 export default function ThreadsDetailPage() {
   const [thread, setThread] = useState<any>({});
   const [replies, setReplies] = useState<any[]>([]);
-  const [likedThread, setLikedThread] = useState(false);
-  const [likedReplies, setLikedReplies] = useState<Record<number, boolean>>({});
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   const [image, setImage] = useState<File | null>(null);
   const [content, setContent] = useState('');
-  const [errMsg, setErrMsg] = useState('');
   const navigate = useNavigate();
   const profile = useSelector((state: RootState) => state.profile);
   const { thread_id } = useParams();
@@ -30,7 +26,6 @@ export default function ThreadsDetailPage() {
       try {
         const threadDetail = await api.get(`/thread/${thread_id}`, { withCredentials: true });
         setThread(threadDetail.data.data);
-        setLikedThread(threadDetail.data.data.isLiked);
         
           const data = threadDetail.data.data;
             if (data.isLiked) {
@@ -41,7 +36,6 @@ export default function ThreadsDetailPage() {
 
         const repliesRes = await api.get(`/reply?thread_id=${thread_id}&limit=25`, { withCredentials: true });
         setReplies(repliesRes.data.data);
-        setLikedReplies(repliesRes.data.data.isLiked);
         
          const repliesData = repliesRes.data.data;
           const likedReplyIds = repliesData
@@ -103,8 +97,7 @@ export default function ThreadsDetailPage() {
 
       navigate(0);
     } catch (error: any) {
-      const msg = error.response?.data?.message || 'Failed to post thread';
-      setErrMsg(msg);
+      console.log(error.response?.data?.message || 'Failed to post thread') 
     }
   };
 

@@ -4,7 +4,6 @@ import { api } from "@/services/api"
 import { useSelector } from "react-redux"
 import type { RootState } from "@/store"
 import { useNavigate } from "react-router-dom"
-import { Link } from "react-router-dom"
 
 interface UserData {
   id: number

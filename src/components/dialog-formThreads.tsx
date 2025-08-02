@@ -1,10 +1,8 @@
 import {
-  Dialog,
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog"
 import { useAuth } from "@/hooks/auth";
 import { api } from "@/services/api";
@@ -17,7 +15,6 @@ export function Dialogform() {
     const [imagePreview, setImagePreview] = useState<string | null>(null);
     const [image, setImage] = useState<File|null>(null)
     const [content, setContent] = useState("")
-    const [errMsg, setErrMsg] = useState("")
     const navigate = useNavigate()
     const [loading, setLoading] =useState(false)
 
@@ -42,8 +39,7 @@ export function Dialogform() {
          },1000)
         navigate(0)
     } catch (error: any) {
-        const msg = error.response?.data?.message || "Failed to post thread";
-        setErrMsg(msg);
+        console.log(error.response?.data?.message || "Failed to post thread") 
     } finally {setLoading(false)}
     };
 

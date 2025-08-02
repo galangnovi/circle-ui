@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { Input } from "@/components/ui/input" // jika pakai shadcn
 import { api } from "@/services/api"
-import { useNavigate } from "react-router-dom"
+
 
 interface User {
   id: number
@@ -15,7 +15,7 @@ interface User {
 export default function SearchResult() {
   const [query, setQuery] = useState("")
   const [results, setResults] = useState<User[]>([])
-  const navigate = useNavigate()
+  
   useEffect(() => {
     const delayDebounce = setTimeout(() => {
       if (query.trim() !== "") {

@@ -1,13 +1,11 @@
 import { Button } from "@/components/ui/button"
 import {
-  Dialog,
   DialogClose,
   DialogContent,
   DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -16,7 +14,6 @@ import type { RootState } from "@/store"
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import { Textarea } from "./ui/textarea"
-import { Divide } from "lucide-react"
 import { useNavigate } from "react-router-dom"
 
 
@@ -30,7 +27,6 @@ export function DialogEditProfile() {
   const [fullname, setFullname] =useState("")
   const [bio, setBio] =useState("")
   const [email, setEmail] =useState("")
-  const [errMsg, setErrMsg] = useState("")
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -82,8 +78,7 @@ export function DialogEditProfile() {
 
         navigate(0)
       } catch (error: any) {
-        const msg = error.response?.data?.message || "Failed to post thread";
-        setErrMsg(msg);
+        console.log(error.response?.data?.message || "Failed to post thread") 
     }
     }
   
@@ -109,7 +104,7 @@ export function DialogEditProfile() {
               alt="profile"
               className="w-16 h-16 rounded-full object-cover border-4 border-[#16181c]"
             /> : <img
-              src={`http://localhost:3000/uploads/${encodeURIComponent(String(profile.photo_profile))}`}
+              src={profile.photo_profile}
               alt="profile"
               className="w-16 h-16 rounded-full object-cover border-4 border-[#16181c]"
             />}

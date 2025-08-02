@@ -1,8 +1,6 @@
 import { DialogEditProfile } from "@/components/edit-Profile";
 import ImageThreads from "@/components/imageInProfile";
-import imageThreads from "@/components/imageInProfile";
 import ContentThreads from "@/components/threadsInProfile";
-import contentThreads from "@/components/threadsInProfile";
 import { Dialog, DialogTrigger } from "@/components/ui/dialog";
 import { setProfile } from "@/features/profile/profileSlice";
 import { api } from "@/services/api";

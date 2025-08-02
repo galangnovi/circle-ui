@@ -1,13 +1,8 @@
 import { useEffect, useState } from "react";
 import { api } from "../services/api";
 import { ImagePlus } from 'lucide-react';
-import { useAuth } from "../hooks/auth";
 import {
   Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Dialogform } from "@/components/dialog-formThreads";
@@ -40,7 +35,6 @@ export default function Home() {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { user } = useAuth();
   const profile = useSelector((state: RootState) => state.profile);
   const likedThreadIds = useSelector((state: RootState) => state.likes.likedThreadIds);
 

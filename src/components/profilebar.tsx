@@ -1,4 +1,4 @@
-import { use, useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import { api } from "../services/api";
 import { useDispatch, useSelector } from "react-redux";
 import type { AppDispatch, RootState } from "@/store";
@@ -6,12 +6,10 @@ import { setProfile } from "@/features/profile/profileSlice";
 import { Dialog, DialogTrigger } from "@radix-ui/react-dialog";
 import { DialogEditProfile } from "./edit-Profile";
 import { Button } from "./ui/button";
-import { useTimeout } from "@/hooks/delay";
-import { useAuth } from "@/hooks/auth";
+
 
 
 export default function Profilebar() {
-    const [user, setUser] = useState<any>({});
     const dispatch = useDispatch<AppDispatch>();
     const profile = useSelector((state: RootState) => state.profile);
     const [recomendation, setRecomendation] = useState<any[]>([])
@@ -20,7 +18,6 @@ export default function Profilebar() {
         const fetchThreads = async () => {
           const res = await api.get("/myProfile", {withCredentials: true});
           const profile = res.data.data
-          setUser(profile);
           dispatch(setProfile(profile))
       };
         fetchThreads();
