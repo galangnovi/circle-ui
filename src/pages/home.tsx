@@ -115,7 +115,7 @@ export default function Home() {
               className="w-10 h-10 rounded-full object-cover mr-2"
             />
             <input
-              className="w-full bg-transparent text-white placeholder-gray-400 outline-none"
+              className="w-full bg-transparent text-white  outline-none"
               placeholder="What is happening?!"
             />
           </div>
@@ -159,12 +159,12 @@ export default function Home() {
                   />
                 )}
                 <div className="flex space-x-4 text-gray-500 text-sm mt-3">
-                  <button onClick={() =>  handleLike(thread.id)}  className="p-0 w-fit">
+                  <button onClick={() =>  handleLike(thread.id)}  className="p-0 w-fit !bg-transparent">
                     {likedThreadIds.includes(thread.id) ? '❤️' : '🤍'} {thread.likes_count}
                   </button>
                   <button
                     onClick={() => navigate(`/thread/${thread.id}`)}
-                    className="flex items-center hover:underline"
+                    className="flex items-center hover:underline !bg-transparent"
                   >
                     💬 {thread.number_of_replies} Replies
                   </button>
