@@ -198,6 +198,7 @@ export default function ThreadsDetailPage() {
                   src={thread.image}
                   alt="post"
                   className="rounded-lg mt-2 max-h-[400px] w-full object-cover"
+                  style={{ borderRadius: "6px 6px 6px 6px" }}
                 />
               )}
               <div className="flex items-start mt-3 gap-2">
@@ -242,7 +243,8 @@ export default function ThreadsDetailPage() {
           />
           {imagePreview && (
             <div className="w-full max-h-[300px] overflow-hidden rounded-md" style={{ borderRadius: "6px 6px 6px 6px" }}>
-              <img src={imagePreview} alt="Preview" className="w-full h-auto object-contain" />
+              <img src={imagePreview} alt="Preview" className="w-full h-auto object-contain" style={{ borderRadius: "6px 6px 6px 6px" }} />
+              
             </div>
           )}
           <div className="flex justify-end mt-3">
@@ -258,12 +260,13 @@ export default function ThreadsDetailPage() {
 
       <div className="space-y-6 w-full">
         {replies.map((reply) => (
-          <div key={reply.id} className="bg-[#1a1a1a] p-4 rounded-lg">
+          <div key={reply.id} className="bg-[#1a1a1a] p-4 rounded-lg" style={{ borderRadius: "6px 6px 6px 6px" }}>
             <div className="flex items-start space-x-3">
               <img
                 src={reply.user.photo_profile}
                 alt="profile"
                 className="w-10 h-10 rounded-full object-cover"
+                style={{ borderRadius: "6px 6px 6px 6px" }}
               />
               <div className="flex-1">
                 <div className="flex justify-between text-sm text-white">
