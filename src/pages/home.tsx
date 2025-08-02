@@ -142,15 +142,15 @@ export default function Home() {
           <div key={thread.id} className="bg-[#1a1a1a] p-4 rounded-lg">
             <div className="flex items-start space-x-3">
               <img
-                src={`http://localhost:3000/uploads/${encodeURIComponent(thread.user.photo_profile)}`}
+                src={`http://localhost:3000/uploads/${encodeURIComponent(profile.photo_profile)}`}
                 alt="profile"
                 className="w-10 h-10 rounded-full object-cover"
               />
               <div className="flex-1">
                 <div className="flex justify-between text-sm text-gray-400">
                   <div className="flex flex-col justify-start items-start gap-1 sm:!flex-row">
-                    <span className="font-bold mr-0.5 text-white">{thread.user.full_name}</span>
-                    <span>@{thread.user.username}</span>
+                    <span className="font-bold mr-0.5 text-white">{profile.full_name}</span>
+                    <span>@{profile.username}</span>
                   </div>
                   <span>{new Date(thread.created_at).toLocaleTimeString()}</span>
                 </div>

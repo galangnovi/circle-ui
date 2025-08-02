@@ -18,8 +18,8 @@ export default function ThreadsDetailPage() {
   const [image, setImage] = useState<File | null>(null);
   const [content, setContent] = useState('');
   const [errMsg, setErrMsg] = useState('');
-  const { user } = useAuth();
   const navigate = useNavigate();
+  const profile = useSelector((state: RootState) => state.profile);
   const { thread_id } = useParams();
   const likedThreadIds = useSelector((state: RootState) => state.likes.likedThreadIds);
   const likedRepliesIds = useSelector((state: RootState) => state.likes.likedRepliesIds);
@@ -230,7 +230,7 @@ export default function ThreadsDetailPage() {
       <div className="flex justify-between items-center w-full rounded-lg mb-6">
         <div className="flex items-center w-full">
           <img
-            src={`http://localhost:3000/uploads/${encodeURIComponent(String(user?.avatar))}`}
+            src={`http://localhost:3000/uploads/${encodeURIComponent(String(profile.photo_profile))}`}
             alt="profile"
             className="w-10 h-10 rounded-full object-cover mr-2"
           />
