@@ -107,7 +107,7 @@ export default function Home() {
   return (
     <div className="min-h-screen w-full bg-black pt-0">
       <Dialog>
-        <DialogTrigger className="flex justify-between items-center w-full rounded-lg mb-6 !bg-transparent">
+        <DialogTrigger className="flex justify-between items-center w-full rounded-lg mb-6 !bg-transparent" style={{ borderRadius: "4px 4px 4px 4px" }}>
           <div className="flex items-center w-full">
             <img
               src={profile.photo_profile}
@@ -133,7 +133,7 @@ export default function Home() {
 
       <div className="space-y-6 w-full">
         {threads.map((thread) => (
-          <div key={thread.id} className="bg-[#1a1a1a] p-4 rounded-lg">
+          <div key={thread.id} className="bg-[#1a1a1a] p-4 rounded-lg " style={{ borderRadius: "4px 4px 0 0" }}>
             <div className="flex items-start space-x-3">
               <img
                 src={thread.user.photo_profile}

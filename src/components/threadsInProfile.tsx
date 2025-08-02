@@ -18,7 +18,7 @@ export default function ContentThreads() {
     return (
         <div className="space-y-6 w-full">
         {threadsByUser.map((thread) => (
-          <div key={thread.id} className="bg-[#1a1a1a] p-4 rounded-lg">
+          <div key={thread.id} className="bg-[#1a1a1a] p-4 rounded-lg" style={{ borderRadius: "4px 4px 4px 4px" }}>
             <div className="flex items-start space-x-3">
               <img
                 src={thread.user.photo_profile}

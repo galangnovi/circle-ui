@@ -176,7 +176,7 @@ export default function ThreadsDetailPage() {
   return (
     <div className="w-full bg-black pt-6">
       <div className="space-y-6">
-        <div className="bg-[#1a1a1a] p-4 rounded-lg">
+        <div className="bg-[#1a1a1a] p-4 rounded-lg" style={{ borderRadius: "4px 4px 4px 4px" }}>
           <div className="flex items-start space-x-3">
             <img
               src={thread?.user?.photo_profile}
@@ -220,7 +220,7 @@ export default function ThreadsDetailPage() {
         </div>
       </div>
 
-      <div className="flex justify-between items-center w-full rounded-lg mb-6">
+      <div className="flex justify-between items-center w-full rounded-lg mb-6" style={{ borderRadius: "4px 4px 4px 4px" }}>
         <div className="flex items-center w-full">
           <img
             src={profile.photo_profile}
