@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { api } from "../services/api";
 import { useAuth } from "../hooks/auth";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function LoginPage() {
   const {setUser, user, login}= useAuth()
@@ -90,9 +91,9 @@ export default function LoginPage() {
 
           <p className="mt-6 text-center text-sm text-gray-400">
             Don’t have an account yet?{" "}
-            <a href="/register" className="text-green-500 hover:underline">
+            <Link to="/register" className="text-green-500 hover:underline">
               Create account
-            </a>
+            </Link>
           </p>
         </form>
       </div>
