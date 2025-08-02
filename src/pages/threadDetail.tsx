@@ -186,7 +186,7 @@ export default function ThreadsDetailPage() {
         <div className="bg-[#1a1a1a] p-4 rounded-lg">
           <div className="flex items-start space-x-3">
             <img
-              src={`http://localhost:3000/uploads/${encodeURIComponent(thread?.user?.photo_profile)}`}
+              src={thread?.user?.photo_profile}
               alt="profile"
               className="w-10 h-10 rounded-full object-cover"
             />
@@ -202,7 +202,7 @@ export default function ThreadsDetailPage() {
               </div>
               {thread.image && (
                 <img
-                  src={`http://localhost:3000/uploads/${encodeURIComponent(thread.image)}`}
+                  src={thread.image}
                   alt="post"
                   className="rounded-lg mt-2 max-h-[400px] w-full object-cover"
                 />
@@ -230,7 +230,7 @@ export default function ThreadsDetailPage() {
       <div className="flex justify-between items-center w-full rounded-lg mb-6">
         <div className="flex items-center w-full">
           <img
-            src={`http://localhost:3000/uploads/${encodeURIComponent(String(profile.photo_profile))}`}
+            src={profile.photo_profile}
             alt="profile"
             className="w-10 h-10 rounded-full object-cover mr-2"
           />
@@ -268,7 +268,7 @@ export default function ThreadsDetailPage() {
           <div key={reply.id} className="bg-[#1a1a1a] p-4 rounded-lg">
             <div className="flex items-start space-x-3">
               <img
-                src={`http://localhost:3000/uploads/${encodeURIComponent(reply.user.photo_profile)}`}
+                src={reply.user.photo_profile}
                 alt="profile"
                 className="w-10 h-10 rounded-full object-cover"
               />
@@ -285,7 +285,7 @@ export default function ThreadsDetailPage() {
                 </div>
                 {reply.image && (
                   <img
-                    src={`http://localhost:3000/uploads/${encodeURIComponent(reply.image)}`}
+                    src={reply.image}
                     alt="post"
                     className="rounded-lg mt-2 max-h-[400px] w-full object-cover"
                   />

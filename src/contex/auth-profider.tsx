@@ -34,6 +34,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     api.get("/logout", { withCredentials: true })
+    console.log("berhasil")
     setToken(null);
     setUser(null);
   };

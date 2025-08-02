@@ -19,27 +19,32 @@ export function Dialogform() {
     const [content, setContent] = useState("")
     const [errMsg, setErrMsg] = useState("")
     const navigate = useNavigate()
+    const [loading, setLoading] =useState(false)
 
     const handlenewThreads = async () => {
+        setLoading(true)
     try {
-        const formData = new FormData();
-        formData.append("content", content);
-        if (image) {
-        formData.append("image", image); // hanya kalau ada gambar
-        }
+         const formData = new FormData();
+         formData.append("content", content);
+         if (image) {
+         formData.append("image", image); // hanya kalau ada gambar
+         }
 
-        await api.post("/auth/thread", formData, {
-        withCredentials: true,
-        headers: {
-            "Content-Type": "multipart/form-data",
-        },
-        });
-
-        navigate(0);
+         await api.post("/auth/thread", formData, {
+         withCredentials: true,
+         headers: {
+             "Content-Type": "multipart/form-data",
+          },
+         });
+         
+         setTimeout(()=>{
+            setLoading(false)
+         },1000)
+        navigate(0)
     } catch (error: any) {
         const msg = error.response?.data?.message || "Failed to post thread";
         setErrMsg(msg);
-    }
+    } finally {setLoading(false)}
     };
 
     const handleImageClick = () => {
@@ -64,7 +69,7 @@ export function Dialogform() {
         <div className="flex flex-col rounded-lg mb-6">
             <div className="flex justify-start">
                 <img
-                    src={`http://localhost:3000/uploads/${encodeURIComponent(String(user?.avatar))}`}
+                    src={`${user?.avatar}`}
                     alt="profile"
                     className="w-10 h-10 rounded-full object-cover mr-2"
                 />
@@ -97,8 +102,8 @@ export function Dialogform() {
                 <button className="!bg-transparent" type="button" onClick={handleImageClick}>
                 <ImagePlus className="!bg-transparent text-green-400"/>
                 </button>
-                <button className="!bg-green-600 text-white px-4 !rounded-full hover:bg-green-700" onClick={handlenewThreads}>
-                Post
+                <button disabled={loading} className="!bg-green-600 text-white px-4 !rounded-full hover:bg-green-700" onClick={handlenewThreads}>
+                {loading ? "Adding..." : "Post"}
                 </button>
             </div>
           </div>

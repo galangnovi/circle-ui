@@ -16,7 +16,7 @@ export default function ImageThreads() {
         <div className="flex flex-wrap w-full justify-between">
             {imageData.map((I) => (
                 <div key={I.id} className="w-[32%] aspect-square mb-5">
-                    <img src={`http://localhost:3000/uploads/${encodeURIComponent(I.image)}`} 
+                    <img src={I.image} 
                     className="w-full h-full object-cover rounded-md"
                     alt="" />
                     <div className=" flex justify-center gap-3 -mt-7">

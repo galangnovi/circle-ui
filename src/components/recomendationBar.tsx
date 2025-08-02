@@ -28,7 +28,7 @@ export default function Recomendationbar() {
     try {
       if (currentlyFollowing) {
         await api.delete(`/follows`, {
-          data: { followed_id: targetId },
+          data: { followed_id: targetId }, withCredentials: true
         });
       } else {
         await api.post(`/follows`, { followed_id: targetId }, { withCredentials: true });

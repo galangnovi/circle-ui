@@ -77,7 +77,7 @@ export default function Home() {
 
   useEffect(() => {
     const fetchThreads = async () => {
-      const response = await api.get("http://localhost:3000/api/v1/thread?limit=25", {
+      const response = await api.get("/thread?limit=25", {
         withCredentials: true,
       });
 
@@ -93,17 +93,17 @@ export default function Home() {
     fetchThreads();
   }, [dispatch]);
 
-  useEffect(() => {
-    const fetchThreads = async () => {
-      const response = await api.get("http://localhost:3000/api/v1/thread?limit=25", {
-        withCredentials: true,
-      });
+  // useEffect(() => {
+  //   const fetchThreads = async () => {
+  //     const response = await api.get("/thread?limit=25", {
+  //       withCredentials: true,
+  //     });
 
-      const data: ThreadType[] = response.data.data;
-      setThreads(data);
-    };
-    fetchThreads();
-  }, []);
+  //     const data: ThreadType[] = response.data.data;
+  //     setThreads(data);
+  //   };
+  //   fetchThreads();
+  // }, []);
 
 
   useThreadSocket((newThread) => {
@@ -116,7 +116,7 @@ export default function Home() {
         <DialogTrigger className="flex justify-between items-center w-full rounded-lg mb-6">
           <div className="flex items-center w-full">
             <img
-              src={`http://localhost:3000/uploads/${encodeURIComponent(String(profile.photo_profile))}`}
+              src={profile.photo_profile}
               alt="profile"
               className="w-10 h-10 rounded-full object-cover mr-2"
             />
@@ -142,15 +142,15 @@ export default function Home() {
           <div key={thread.id} className="bg-[#1a1a1a] p-4 rounded-lg">
             <div className="flex items-start space-x-3">
               <img
-                src={`http://localhost:3000/uploads/${encodeURIComponent(profile.photo_profile)}`}
+                src={thread.user.photo_profile}
                 alt="profile"
                 className="w-10 h-10 rounded-full object-cover"
               />
               <div className="flex-1">
                 <div className="flex justify-between text-sm text-gray-400">
                   <div className="flex flex-col justify-start items-start gap-1 sm:!flex-row">
-                    <span className="font-bold mr-0.5 text-white">{profile.full_name}</span>
-                    <span>@{profile.username}</span>
+                    <span className="font-bold mr-0.5 text-white">{thread.user.full_name}</span>
+                    <span>@{thread.user.username}</span>
                   </div>
                   <span>{new Date(thread.created_at).toLocaleTimeString()}</span>
                 </div>
@@ -159,7 +159,7 @@ export default function Home() {
                 </div>
                 {thread.image && (
                   <img
-                    src={`http://localhost:3000/uploads/${encodeURIComponent(thread.image)}`}
+                    src={thread.image}
                     alt="post"
                     className="rounded-lg mt-2 h-auto w-full xl:w-[95%] object-cover"
                   />
@@ -172,7 +172,7 @@ export default function Home() {
                     onClick={() => navigate(`/thread/${thread.id}`)}
                     className="flex items-center hover:underline"
                   >
-                    💬 {thread.number_of_replies ? thread.number_of_replies : 0} Replies
+                    💬 {thread.number_of_replies} Replies
                   </button>
                 </div>
               </div>

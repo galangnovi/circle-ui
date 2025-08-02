@@ -21,7 +21,7 @@ export default function ContentThreads() {
           <div key={thread.id} className="bg-[#1a1a1a] p-4 rounded-lg">
             <div className="flex items-start space-x-3">
               <img
-                src={`http://localhost:3000/uploads/${encodeURIComponent(thread.user.photo_profile)}`}
+                src={thread.user.photo_profile}
                 alt="profile"
                 className="w-10 h-10 rounded-full object-cover"
               />

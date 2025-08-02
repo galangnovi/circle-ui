@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { io } from 'socket.io-client'
 
-const socket = io('http://localhost:3000')
+const socket = io('https://circle-api-22.up.railway.app')
 
 export const useThreadSocket = (onNewThread: (data: any) => void) => {
   useEffect(() => {

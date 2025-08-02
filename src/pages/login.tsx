@@ -45,10 +45,11 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen flex items-center justify-center">
-      <div className="w-full max-w-md">
-        <h1 className="text-3xl font-bold text-green-500 mb-2 text-center">circle</h1>
-        <h2 className="text-white text-center mb-6 text-lg font-semibold">Login to Circle</h2>
-
+      <div className="w-full max-w-md ">
+        <div className="flex flex-col items-start ml-8">
+            <h1 className=" !text-5xl font-bold text-green-500 mb-4 text-center">circle</h1>
+            <h2 className=" !text-2xl text-white text-center mb-3 font-semibold">Login to Circle</h2>
+        </div>
         <form onSubmit={handleLogin} className=" p-6 rounded-md shadow">
           <div className="mb-4">
             <input

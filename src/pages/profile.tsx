@@ -32,13 +32,13 @@ export default function ProfilePage() {
     return (
         <div className="w-full">
             <div className="h-20 overflow-hidden rounded-t-xl">
-                {profile.cover_photo ? <img src={`http://localhost:3000/uploads/${encodeURIComponent(String(profile.cover_photo))}`}
+                {profile.cover_photo ? <img src={profile.cover_photo}
                 alt="cover" className="h-fit w-full"/> : <div className="h-full bg-gradient-to-r from-green-400 to-yellow-300 rounded-t-xl"></div> }
             </div>
             <div className=" w-full px-4 pb-4 -mt-10 flex items-center justify-between">
                 <div className="flex items-center space-x-3">
                     <img
-                    src={`http://localhost:3000/uploads/${encodeURIComponent(String(profile.photo_profile))}`}
+                    src={profile.photo_profile}
                     alt="profile"
                     className="w-16 h-16 rounded-full object-cover border-4 border-[#16181c]"
                     />

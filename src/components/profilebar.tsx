@@ -45,9 +45,7 @@ export default function Profilebar() {
   setTimeout(async () => {
     try {
       if (currentlyFollowing) {
-        await api.delete(`/follows`, {
-          data: { followed_id: targetId },
-        });
+        await api.delete(`/follows`, {data: { followed_id: targetId }, withCredentials: true} );
       } else {
         await api.post(`/follows`, { followed_id: targetId }, { withCredentials: true });
       }
@@ -71,13 +69,13 @@ export default function Profilebar() {
   
   <div className="bg-[#16181c] rounded-xl shadow-md overflow-hidden relative">
     <div className="h-20 overflow-hidden">
-        {profile.cover_photo ? <img src={`http://localhost:3000/uploads/${encodeURIComponent(String(profile.cover_photo))}`}
+        {profile.cover_photo ? <img src={`${profile.cover_photo}`}
           alt="cover" className="h-fit w-full"/> : <div className="h-full bg-gradient-to-r from-green-400 to-yellow-300"></div> }
     </div>
     <div className="px-4 pb-4 -mt-10 flex items-center justify-between">
       <div className="flex items-center space-x-3">
         <img
-          src={`http://localhost:3000/uploads/${encodeURIComponent(String(profile.photo_profile))}`}
+          src={profile.photo_profile}
           alt="profile"
           className="w-16 h-16 rounded-full object-cover border-4 border-[#16181c]"
         />
