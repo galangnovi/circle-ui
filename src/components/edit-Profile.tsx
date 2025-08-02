@@ -137,9 +137,9 @@ export function DialogEditProfile() {
           </div>
           <DialogFooter>
             <DialogClose asChild>
-              <Button variant="outline">Cancel</Button>
+              <Button className="!bg-transparent" variant="outline">Cancel</Button>
             </DialogClose>
-            <Button type="submit" className="text-white" onClick={handleEditProfile}>Save changes</Button>
+            <Button type="submit" className="text-white !bg-transparent" onClick={handleEditProfile}>Save changes</Button>
           </DialogFooter>
         </DialogContent>
       </form>

@@ -107,7 +107,7 @@ export default function Home() {
   return (
     <div className="min-h-screen w-full bg-black pt-0">
       <Dialog>
-        <DialogTrigger className="flex justify-between items-center w-full rounded-lg mb-6">
+        <DialogTrigger className="flex justify-between items-center w-full rounded-lg mb-6 !bg-transparent">
           <div className="flex items-center w-full">
             <img
               src={profile.photo_profile}

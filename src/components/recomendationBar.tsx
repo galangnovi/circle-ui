@@ -68,6 +68,7 @@ export default function Recomendationbar() {
               </div>
             
                 <Button
+                    className="!bg-transparent"
                     variant={r.is_following || tempFollowStatus[r.id] ? "secondary" : "secondary"}
                     onClick={() => handleFollowToggle(r.id, r.is_following || tempFollowStatus[r.id])}
                   >

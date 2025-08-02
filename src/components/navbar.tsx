@@ -25,7 +25,7 @@ export default function Navbar() {
         </Link>
       </nav>
       <Dialog>
-        <DialogTrigger className="w-full dark">
+        <DialogTrigger className="w-full !bg-transparent">
           <button className=" hidden lg:block w-full !bg-green-600 !text-sm sm:!text-[18px] text-white py-2 !rounded-full hover:bg-green-700 ">Create Post</button>
           <button className=" block lg:hidden w-full !bg-green-600 !text-xl sm:!text-[20px] text-white py-2 !rounded-full hover:bg-green-700 ">+</button>
         </DialogTrigger>

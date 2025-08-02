@@ -73,6 +73,7 @@ export default function FollowTabs() {
         </div>
         {user.id !== currentUserId && (
           <Button
+          className="!bg-transparent"
             variant={user.is_following ? "secondary" : "secondary"}
             onClick={() => handleFollowToggle(user.id, user.is_following)}
           >

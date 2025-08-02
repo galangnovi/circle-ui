@@ -205,12 +205,12 @@ export default function ThreadsDetailPage() {
                 <span className="font-light text-sm">{new Date(thread?.created_at).toLocaleDateString()}</span>
               </div>
               <div className="flex space-x-4 text-gray-500 text-sm">
-                <button onClick={() => handleLikeThread(thread.id)}>
+                <button onClick={() => handleLikeThread(thread.id)} className='!bg-transparent'>
                   {likedThreadIds.includes(thread.id) ? '❤️' : '🤍'} {thread.likes_count}
                 </button>
                 <button
                   onClick={() => navigate(`/thread/${thread?.id}`)}
-                  className="flex items-center hover:underline"
+                  className="flex items-center hover:underline !bg-transparent"
                 >
                   💬 {thread.number_of_replies} Replies
                 </button>
@@ -284,7 +284,7 @@ export default function ThreadsDetailPage() {
                   />
                 )}
                 <div className="flex space-x-4 text-gray-500 text-sm mt-3">
-                  <button onClick={() => handleLikeReply(reply.id)}>
+                  <button className='!bg-transparent' onClick={() => handleLikeReply(reply.id)}>
                   {likedRepliesIds.includes(reply.id) ? '❤️' : '🤍'} {reply.likes_count}
                 </button>
                 </div>

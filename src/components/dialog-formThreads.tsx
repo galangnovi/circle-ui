@@ -96,7 +96,7 @@ export function Dialogform() {
                 )}
             <div className="flex justify-end mt-3">
                 <button className="!bg-transparent" type="button" onClick={handleImageClick}>
-                <ImagePlus className="!bg-transparent text-green-400"/>
+                <ImagePlus className=" text-green-400"/>
                 </button>
                 <button disabled={loading} className="!bg-green-600 text-white px-4 !rounded-full hover:bg-green-700" onClick={handlenewThreads}>
                 {loading ? "Adding..." : "Post"}
