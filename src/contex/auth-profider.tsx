@@ -9,6 +9,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     const storedUser = localStorage.getItem("user");
     return storedUser ? JSON.parse(storedUser) : null;
   });
+  const [ready, setReady] = useState(false)
 
   const login = (token: string) => {
     localStorage.setItem("token", token);
@@ -18,9 +19,15 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
   const fetchUserActive = async () => {
     
+      try {
       const res = await api.get("/auth", { withCredentials: true });
-      const user:any = res.data
-        login(user)
+      const user: any = res.data;
+      login(user.token);
+    } catch {
+      setToken(null);
+    } finally {
+      setReady(true);
+    }
   };
   fetchUserActive();
 }, []);
@@ -38,6 +45,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setToken(null);
     setUser(null);
   };
+
+  if (!ready) return null
 
   return (
     <AuthContext.Provider value={{ token, login, logout, user, setUser: setUserAndSave }}>
