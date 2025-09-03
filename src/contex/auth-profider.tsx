@@ -23,7 +23,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       const res = await api.get("/auth", { withCredentials: true });
       const user: any = res.data;
       console.log(res.data)
-      login(user.token);
+      login(user);
     } catch {
       setToken(null);
     } finally {
