@@ -107,10 +107,10 @@ export default function Home() {
   return (
     <div className="min-h-screen w-full bg-black pt-0">
       <div className="w-full">
-        <h1 className="text-xl flex justify-start text-green-700 font-bold">Home</h1>
+        <h1 className="text-xm flex justify-start text-green-700 font-bold">Home</h1>
       </div>
       <Dialog>
-        <DialogTrigger className="flex justify-between items-center w-full rounded-lg mb-6 !bg-transparent border border-green-600" style={{ borderRadius: "4px 4px 4px 4px" }}>
+        <DialogTrigger className="flex justify-between items-center w-full rounded-lg mb-6 !bg-transparent !border !border-green-600" style={{ borderRadius: "4px 4px 4px 4px" }}>
           <div className="flex items-center w-full ">
             <img
               src={profile.photo_profile}
