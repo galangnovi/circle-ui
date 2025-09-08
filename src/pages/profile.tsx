@@ -8,6 +8,7 @@ import type { AppDispatch, RootState } from "@/store";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { MoveLeft } from 'lucide-react';
+import { Link } from "react-router-dom";
 
 
 
@@ -31,9 +32,9 @@ export default function ProfilePage() {
     return (
         <div className="w-full">
             <div className="w-full mb-2">
-                <a href="/" className="flex">
+                <Link to="/">
                     <h2 className="text-3xl flex justify-start items-center text-green-500 font-bold"><MoveLeft/>Profile</h2>
-                </a>
+                </Link>
             </div>
             <div className="h-20 overflow-hidden rounded-t-xl" style={{ borderRadius: "8px 8px 0 0" }}>
                 {profile.cover_photo ? <img src={profile.cover_photo}
