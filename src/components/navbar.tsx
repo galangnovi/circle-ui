@@ -1,4 +1,4 @@
-import { Home, Search, User, LogOut } from "lucide-react";
+import { Home, Search, User, UserCheck, LogOut } from "lucide-react";
 import { useAuth } from "../hooks/auth";
 import { Link } from "react-router-dom";
 import { Dialog, DialogTrigger } from "@radix-ui/react-dialog";
@@ -18,7 +18,7 @@ export default function Navbar() {
           <Search /> Search
         </Link>
         <Link to="/follows" className="flex items-center gap-3 sm:!text-xl !text-white cursor-pointer hover:!text-green-500">
-          <User /> Follows
+          <UserCheck /> Follows
         </Link>
         <Link to="/profile" className="flex items-center gap-3 sm:!text-xl !text-white cursor-pointer hover:!text-green-500">
           <User /> Profile

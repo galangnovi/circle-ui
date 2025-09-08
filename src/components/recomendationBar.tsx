@@ -50,7 +50,7 @@ export default function Recomendationbar() {
     
   return (
 <aside className=" hidden lg:block w-[26%] px-4 py-6 text-white space-y-6 fixed top-0 right-0">
-  <div>
+  <div className="bg-[#16181c]  shadow-md !overflow-hidden relative">
     <h4 className="font-semibold mb-3 text-white">Suggested for you</h4>
     <ul className="flex flex-col gap-4">
     {recomendation.map((r) => (

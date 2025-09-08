@@ -103,7 +103,7 @@ export default function Profilebar() {
   </div>
 
   
-  <div>
+  <div className="bg-[#16181c]  shadow-md !overflow-hidden relative">
     <h4 className="font-semibold mb-3 text-white">Suggested for you</h4>
     <ul className="flex flex-col gap-4">
     {recomendation.map((r) => (
