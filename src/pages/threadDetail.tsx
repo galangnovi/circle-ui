@@ -2,9 +2,10 @@ import { addReplyLike, addThreadLike, removeReplyLike, removeThreadLike, setRepl
 import { useThreadSocket } from '@/hooks/useSocket';
 import { api } from '@/services/api';
 import type { RootState } from '@/store';
-import { ImagePlus } from 'lucide-react';
+import { ImagePlus, MoveLeft } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { useNavigate, useParams } from 'react-router-dom';
 
 export default function ThreadsDetailPage() {
@@ -175,6 +176,11 @@ export default function ThreadsDetailPage() {
 
   return (
     <div className="w-full bg-black pt-6">
+      <div className="w-full mb-2">
+          <Link to="/">
+              <h2 className="text-3xl flex justify-start items-center text-green-500 font-bold"><MoveLeft/> Thread Details</h2>
+          </Link>
+      </div>
       <div className="space-y-6">
         <div className="bg-[#1a1a1a] p-4 rounded-lg" style={{ borderRadius: "4px 4px 4px 4px" }}>
           <div className="flex items-start space-x-3">

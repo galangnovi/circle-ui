@@ -4,6 +4,8 @@ import { api } from "@/services/api"
 import { useSelector } from "react-redux"
 import type { RootState } from "@/store"
 import { useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
+import { MoveLeft } from "lucide-react"
 
 interface UserData {
   id: number
@@ -88,6 +90,11 @@ export default function FollowTabs() {
 
   return (
     <div className="w-full px-4 mt-4">
+      <div className="w-full mb-2">
+          <Link to="/">
+              <h2 className="text-3xl flex justify-start items-center text-green-500 font-bold"><MoveLeft/> Follows </h2>
+          </Link>
+      </div>
       <div className="flex !border-b mb-4">
         <p
           className={`flex-1 py-2 text-center text-sm !focus:outline-none cursor-pointer ${

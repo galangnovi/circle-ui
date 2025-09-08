@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react"
 import { Input } from "@/components/ui/input" // jika pakai shadcn
 import { api } from "@/services/api"
+import { Link } from "react-router-dom"
+import { MoveLeft } from "lucide-react"
 
 
 interface User {
@@ -56,6 +58,11 @@ export default function SearchResult() {
 
   return (
     <div className="w-full px-6 py-4">
+      <div className="w-full mb-2">
+          <Link to="/">
+              <h2 className="text-3xl flex justify-start items-center text-green-500 font-bold"><MoveLeft/> Search User</h2>
+          </Link>
+      </div>
       <div className="relative mb-4">
         <Input
           type="text"
