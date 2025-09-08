@@ -32,7 +32,7 @@ export default function ProfilePage() {
         <div className="w-full">
             <div className="w-full mb-2">
                 <a href="/" className="flex">
-                    <h2 className="text-3xl flex justify-start text-green-500 font-bold"><MoveLeft/>Profile</h2>
+                    <h2 className="text-3xl flex justify-start items-center text-green-500 font-bold"><MoveLeft/>Profile</h2>
                 </a>
             </div>
             <div className="h-20 overflow-hidden rounded-t-xl" style={{ borderRadius: "8px 8px 0 0" }}>
