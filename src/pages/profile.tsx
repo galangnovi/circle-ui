@@ -7,6 +7,7 @@ import { api } from "@/services/api";
 import type { AppDispatch, RootState } from "@/store";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { MoveLeft } from 'lucide-react';
 
 
 
@@ -29,6 +30,11 @@ export default function ProfilePage() {
 
     return (
         <div className="w-full">
+            <div className="w-full mb-2">
+                <a href="/" className="flex">
+                    <h2 className="text-3xl flex justify-start text-green-500 font-bold"><MoveLeft/>Profile</h2>
+                </a>
+            </div>
             <div className="h-20 overflow-hidden rounded-t-xl" style={{ borderRadius: "8px 8px 0 0" }}>
                 {profile.cover_photo ? <img src={profile.cover_photo}
                 alt="cover" className="h-fit w-full"/> : <div className="h-full bg-gradient-to-r from-green-400 to-yellow-300 !rounded-t-xl" ></div> }
