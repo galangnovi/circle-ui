@@ -227,7 +227,7 @@ export default function ThreadsDetailPage() {
         </div>
       </div>
 
-      <div className="flex justify-between items-center w-full rounded-lg mb-6" style={{ borderRadius: "6px 6px 6px 6px" }}>
+      <div className="flex justify-between items-center !border !border-green-500 mt-4 w-full rounded-lg mb-6" style={{ borderRadius: "6px 6px 6px 6px" }}>
         <div className="flex items-center w-full">
           <img
             src={profile.photo_profile}
