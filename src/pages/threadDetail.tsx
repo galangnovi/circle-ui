@@ -172,6 +172,40 @@ export default function ThreadsDetailPage() {
         console.error("Gagal like/unlike Reply:", error);
       }
     };
+
+    function formatDateIndo(dateString: string) {
+      const date = new Date(dateString);
+
+      const time = new Intl.DateTimeFormat("id-ID", {
+        timeZone: "Asia/Jakarta",
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: true, // biar ada am/pm
+      }).format(date);
+
+      const dayMonthYear = new Intl.DateTimeFormat("id-ID", {
+        timeZone: "Asia/Jakarta",
+        day: "2-digit",
+        month: "long",
+        year: "numeric",
+      }).format(date);
+
+      return `${time} - ${dayMonthYear}`;
+    }
+
+    function timeAgo(dateString: string) {
+      const date = new Date(dateString);
+      const now = new Date();
+      const diff = Math.floor((now.getTime() - date.getTime()) / 1000); // selisih dalam detik
+
+      if (diff < 60) return `${diff} detik yang lalu`;
+      if (diff < 3600) return `${Math.floor(diff / 60)} menit yang lalu`;
+      if (diff < 86400) return `${Math.floor(diff / 3600)} jam yang lalu`;
+      if (diff < 2592000) return `${Math.floor(diff / 86400)} hari yang lalu`;
+      if (diff < 31104000) return `${Math.floor(diff / 2592000)} bulan yang lalu`;
+      return `${Math.floor(diff / 31104000)} tahun yang lalu`;
+  }
+
   
 
   return (
@@ -208,8 +242,7 @@ export default function ThreadsDetailPage() {
                 />
               )}
               <div className="flex items-start mt-3 gap-2">
-                <span className="font-light text-sm">{new Date(thread?.created_at).toLocaleTimeString()}</span>
-                <span className="font-light text-sm">{new Date(thread?.created_at).toLocaleDateString()}</span>
+                <span>{formatDateIndo(thread.created_at)}</span>
               </div>
               <div className="flex space-x-4 text-gray-500 text-sm">
                 <button onClick={() => handleLikeThread(thread.id)} className='!bg-transparent'>
@@ -280,7 +313,7 @@ export default function ThreadsDetailPage() {
                     <span className="font-bold mr-0.5">{reply.user.full_name}</span>
                     <span>@{reply.user.username}</span>
                   </div>
-                  <span>{new Date(reply.created_at).toLocaleTimeString()}</span>
+                  <span>{timeAgo(reply.created_at)}</span>
                 </div>
                 <div className='flex justify-start'>
                     <p className="text-white mt-1">{reply.content}</p>

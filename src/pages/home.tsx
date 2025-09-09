@@ -87,6 +87,19 @@ export default function Home() {
     fetchThreads();
   }, [dispatch]);
 
+  function timeAgo(dateString: string) {
+      const date = new Date(dateString);
+      const now = new Date();
+      const diff = Math.floor((now.getTime() - date.getTime()) / 1000); // selisih dalam detik
+
+      if (diff < 60) return `${diff} detik yang lalu`;
+      if (diff < 3600) return `${Math.floor(diff / 60)} menit yang lalu`;
+      if (diff < 86400) return `${Math.floor(diff / 3600)} jam yang lalu`;
+      if (diff < 2592000) return `${Math.floor(diff / 86400)} hari yang lalu`;
+      if (diff < 31104000) return `${Math.floor(diff / 2592000)} bulan yang lalu`;
+      return `${Math.floor(diff / 31104000)} tahun yang lalu`;
+  }
+
   // useEffect(() => {
   //   const fetchThreads = async () => {
   //     const response = await api.get("/thread?limit=25", {
@@ -149,7 +162,7 @@ export default function Home() {
                     <span className="font-bold mr-0.5 text-white">{thread.user.full_name}</span>
                     <span>@{thread.user.username}</span>
                   </div>
-                  <span>{new Date(thread.created_at).toLocaleTimeString()}</span>
+                  <span>{timeAgo(thread.created_at)}</span>
                 </div>
                 <div className="flex justify-start">
                   <p className="text-white mt-1">{thread.content}</p>
