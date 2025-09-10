@@ -75,7 +75,7 @@ export default function FollowTabs() {
         </div>
         {user.id !== currentUserId && (
           <Button
-          className="!bg-gray-800"
+          className="!bg-green-500 hover:bg-green-300"
             variant={user.is_following ? "secondary" : "secondary"}
             onClick={() => handleFollowToggle(user.id, user.is_following)}
           >
@@ -99,7 +99,7 @@ export default function FollowTabs() {
         <p
           className={`flex-1 py-2 text-center text-sm !focus:outline-none cursor-pointer ${
             activeTab === "followers"
-              ? "!text-white !border-b-2 !border-white !font-semibold"
+              ? "!text-green-500 !border-b-2 !border-green-500 !font-semibold"
               : "!text-gray-400"
           }`}
           onClick={() => setActiveTab("followers")}
@@ -109,7 +109,7 @@ export default function FollowTabs() {
         <p
           className={`flex-1 py-2 text-center text-sm focus:!outline-none cursor-pointer ${
             activeTab === "following"
-              ? "text-white !border-b-2 !border-white font-semibold"
+              ? "text-green-500 !border-b-2 !border-green-500 font-semibold"
               : "text-gray-400"
           }`}
           onClick={() => setActiveTab("following")}
