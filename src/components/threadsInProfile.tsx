@@ -44,7 +44,7 @@ export default function ContentThreads() {
                 alt="profile"
                 className="w-10 h-10 rounded-full object-cover"
               />
-              <div className="flex-1">
+              <div className="flex flex-col">
                 <div className="flex justify-between text-sm text-gray-400">
                   <div className="flex flex-col">
                     <span className="font-bold mr-0.5 text-white">{thread.user.full_name}</span>
