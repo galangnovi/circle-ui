@@ -15,6 +15,7 @@ import {
   removeThreadLike,
   setThreadLikes,
 } from "../features/likes/likesSlice";
+import { Heart, MessageCircle } from "lucide-react";
 
 export default function Home() {
   type ThreadType = {
@@ -176,14 +177,27 @@ export default function Home() {
                   />
                 )}
                 <div className="flex space-x-4 text-gray-500 text-sm mt-3">
-                  <button onClick={() =>  handleLike(thread.id)}  className="p-0 w-fit !bg-transparent">
-                    {likedThreadIds.includes(thread.id) ? '❤️' : '🤍'} {thread.likes_count}
+                  <button
+                    onClick={() => handleLike(thread.id)}
+                    className="p-0 w-fit flex items-center gap-1 !bg-transparent"
+                  >
+                    <Heart
+                      size={18}
+                      className={`${
+                        likedThreadIds.includes(thread.id)
+                          ? "fill-red-500 text-red-500"
+                          : "text-gray-400"
+                      }`}
+                    />
+                    <span>{thread.likes_count}</span>
                   </button>
+
                   <button
                     onClick={() => navigate(`/thread/${thread.id}`)}
-                    className="flex items-center hover:underline !bg-transparent"
+                    className="flex items-center gap-1 hover:underline !bg-transparent"
                   >
-                    💬 {thread.number_of_replies} Replies
+                    <MessageCircle size={18} className="text-gray-400" />
+                    <span>{thread.number_of_replies} Replies</span>
                   </button>
                 </div>
               </div>

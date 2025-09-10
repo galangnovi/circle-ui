@@ -1,9 +1,12 @@
 import { api } from "@/services/api"
 import { useEffect, useState } from "react"
+import { Heart, MessageCircle } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 
 export default function ImageThreads() {
     const [imageData, setImageData] = useState<any[]>([])
+    const navigate = useNavigate();
     
     useEffect(() => {
         const fetchImage = async () => {
@@ -15,15 +18,29 @@ export default function ImageThreads() {
     return (
         <div className="flex flex-wrap w-full justify-between">
             {imageData.map((I) => (
-                <div key={I.id} className="w-[32%] aspect-square mb-5">
+                <div key={I.id} onClick={() => navigate(`/thread/${I.id}`)} className="w-[32%] aspect-square mb-5">
                     <img src={I.image} 
                     className="w-full h-full object-cover rounded-md"
                     style={{ borderRadius: "5px 5px 5px 5px" }}
                     alt="" />
-                    <div className=" flex justify-center gap-3 -mt-7">
-                        <p>{I.likes_count} ❤️</p>
-                        <p>{I.number_of_replies ? I.number_of_replies : 0 } Replies</p>
-                    </div>
+                    <div className="flex justify-center gap-6 -mt-7 text-gray-400 text-sm">
+                        <button
+                            className="flex items-center gap-1 hover:text-red-500 transition-colors !bg-transparent"
+                        >
+                            <Heart
+                            size={18}
+                            className={`${I.likes_count > 0 ? "fill-red-500 text-red-500" : "text-gray-400"}`}
+                            />
+                            <span>{I.likes_count}</span>
+                        </button>
+
+                        <button
+                            className="flex items-center gap-1 hover:text-green-500 transition-colors !bg-transparent"
+                        >
+                            <MessageCircle size={18} className="text-gray-400" />
+                            <span>{I.number_of_replies ? I.number_of_replies : 0} Replies</span>
+                        </button>
+                        </div>
                     
                 </div>
             )) }

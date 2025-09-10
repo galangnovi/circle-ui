@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { useNavigate, useParams } from 'react-router-dom';
+import { Heart, MessageCircle } from "lucide-react";
 
 export default function ThreadsDetailPage() {
   const [thread, setThread] = useState<any>({});
@@ -250,15 +251,28 @@ export default function ThreadsDetailPage() {
               <div className="flex items-start mt-3 gap-2">
                 <span>{thread.created_at && formatDateIndo(thread.created_at)}</span>
               </div>
-              <div className="flex space-x-4 text-gray-500 text-sm">
-                <button onClick={() => handleLikeThread(thread.id)} className='!bg-transparent'>
-                  {likedThreadIds.includes(thread.id) ? '❤️' : '🤍'} {thread.likes_count}
-                </button>
+              <div className="flex space-x-4 text-gray-500 text-sm mt-3">
                 <button
-                  onClick={() => navigate(`/thread/${thread?.id}`)}
-                  className="flex items-center hover:underline !bg-transparent"
+                  onClick={() => handleLikeThread(thread.id)}
+                  className="p-0 w-fit flex items-center gap-1 !bg-transparent"
                 >
-                  💬 {thread.number_of_replies} Replies
+                  <Heart
+                    size={18}
+                    className={`${
+                      likedThreadIds.includes(thread.id)
+                        ? "fill-red-500 text-red-500"
+                        : "text-gray-400"
+                    }`}
+                  />
+                  <span>{thread.likes_count}</span>
+                </button>
+
+                <button
+                  onClick={() => navigate(`/thread/${thread.id}`)}
+                  className="flex items-center gap-1 hover:underline !bg-transparent"
+                >
+                  <MessageCircle size={18} className="text-gray-400" />
+                  <span>{thread.number_of_replies} Replies</span>
                 </button>
               </div>
             </div>
@@ -332,9 +346,20 @@ export default function ThreadsDetailPage() {
                   />
                 )}
                 <div className="flex space-x-4 text-gray-500 text-sm mt-3">
-                  <button className='!bg-transparent' onClick={() => handleLikeReply(reply.id)}>
-                  {likedRepliesIds.includes(reply.id) ? '❤️' : '🤍'} {reply.likes_count}
-                </button>
+                  <button
+                    className="!bg-transparent flex items-center gap-1"
+                    onClick={() => handleLikeReply(reply.id)}
+                  >
+                    <Heart
+                      size={18}
+                      className={`${
+                        likedRepliesIds.includes(reply.id)
+                          ? "fill-red-500 text-red-500"
+                          : "text-gray-400"
+                      }`}
+                    />
+                    <span>{reply.likes_count}</span>
+                  </button>
                 </div>
               </div>
             </div>
