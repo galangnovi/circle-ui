@@ -79,7 +79,7 @@ export default function ProfilePage() {
                     <p
                     className={`flex-1 py-2 text-center text-sm !focus:outline-none cursor-pointer ${
                         activeTab === "image"
-                        ? "!text-white !border-b-2 !border-white !font-semibold"
+                        ? "!text-green-500 !border-b-2 !border-green-500 !font-semibold"
                         : "!text-gray-400"
                     }`}
                     onClick={() => setActiveTab("image")}
@@ -89,7 +89,7 @@ export default function ProfilePage() {
                     <p
                     className={`flex-1 py-2 text-center text-sm focus:!outline-none cursor-pointer ${
                         activeTab === "content"
-                        ? "text-white !border-b-2 !border-white font-semibold"
+                        ? "text-green-500 !border-b-2 !border-green-500 font-semibold"
                         : "text-gray-400"
                     }`}
                     onClick={() => setActiveTab("content")}
