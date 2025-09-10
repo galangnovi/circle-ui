@@ -10,7 +10,6 @@ export default function ImageThreads() {
         const fetchImage = async () => {
             const res = await api.get("/thread/image")
             setImageData(res.data.data)
-            console.log(res.data.data)
         };
         fetchImage()
     },[])
