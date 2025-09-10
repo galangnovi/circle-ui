@@ -48,7 +48,7 @@ export default function ContentThreads() {
                 <div className="flex justify-between text-sm text-gray-400">
                   <div className="flex flex-col">
                     <span className="font-bold mr-0.5 text-white">{thread.user.full_name}</span>
-                    <span>@{thread.user.username}</span>
+                    <span className="items-start justify-items-start">@{thread.user.username}</span>
                   </div>
                   <span>{thread.created_at && timeAgo(thread.created_at)}</span>
                 </div>
