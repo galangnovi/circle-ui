@@ -17,8 +17,8 @@ export default function MobileToolbar() {
           to="/"
           className={`flex flex-col items-center p-2 rounded-lg transition-colors ${
             isActive("/")
-              ? "text-green-500 bg-green-500/10"
-              : "text-gray-400 hover:text-green-500"
+              ? "!text-green-500 !bg-green-500/10"
+              : "text-gray-400 hover:!text-green-500"
           }`}
         >
           <Home size={20} />
@@ -48,8 +48,8 @@ export default function MobileToolbar() {
           to="/follows"
           className={`flex flex-col items-center p-2 rounded-lg transition-colors ${
             isActive("/follows")
-              ? "text-green-500 bg-green-500/10"
-              : "text-gray-400 hover:text-green-500"
+              ? "!text-green-500 !bg-green-500/10"
+              : "text-gray-400 hover:!text-green-500"
           }`}
         >
           <UserCheck size={20} />
@@ -60,8 +60,8 @@ export default function MobileToolbar() {
           to="/profile"
           className={`flex flex-col items-center p-2 rounded-lg transition-colors ${
             isActive("/profile")
-              ? "text-green-500 bg-green-500/10"
-              : "text-gray-400 hover:text-green-500"
+              ? "!text-green-500 !bg-green-500/10"
+              : "text-gray-400 hover:!text-green-500"
           }`}
         >
           <User size={20} />
@@ -70,7 +70,7 @@ export default function MobileToolbar() {
 
         <button
           onClick={() => logout()}
-          className="flex flex-col items-center p-2 rounded-lg text-gray-400 hover:text-red-400 transition-colors"
+          className="flex flex-col items-center p-2 rounded-lg !bg-transparent !text-gray-400 hover:!text-red-400 transition-colors"
         >
           <LogOut size={20} />
           <span className="text-xs mt-1">Logout</span>
