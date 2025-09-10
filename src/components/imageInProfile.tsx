@@ -1,12 +1,10 @@
 import { api } from "@/services/api"
 import { useEffect, useState } from "react"
 import { Heart, MessageCircle } from "lucide-react";
-import { useNavigate } from "react-router-dom";
 
 
 export default function ImageThreads() {
     const [imageData, setImageData] = useState<any[]>([])
-    const navigate = useNavigate();
     
     useEffect(() => {
         const fetchImage = async () => {
@@ -19,7 +17,7 @@ export default function ImageThreads() {
     return (
         <div className="flex flex-wrap w-full justify-between">
             {imageData.map((I) => (
-                <div key={I.id} onClick={() => navigate(`/thread/${I.id}`)} className="w-[32%] aspect-square mb-5">
+                <div key={I.id} className="w-[32%] aspect-square mb-5">
                     <img src={I.image} 
                     className="w-full h-full object-cover rounded-md"
                     style={{ borderRadius: "5px 5px 5px 5px" }}

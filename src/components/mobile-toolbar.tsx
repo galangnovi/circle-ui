@@ -29,8 +29,8 @@ export default function MobileToolbar() {
           to="/search"
           className={`flex flex-col items-center p-2 rounded-lg transition-colors ${
             isActive("/search")
-              ? "text-green-500 bg-green-500/10"
-              : "text-gray-400 hover:text-green-500"
+              ? "!text-green-500 !bg-green-500/10"
+              : "text-gray-400 hover:!text-green-500"
           }`}
         >
           <Search size={20} />
@@ -38,7 +38,7 @@ export default function MobileToolbar() {
         </Link>
 
         <Dialog>
-          <DialogTrigger className="flex flex-col items-center p-2 rounded-full bg-green-500 text-white hover:bg-green-600 transition-colors">
+          <DialogTrigger className="flex flex-col items-center p-2 !rounded-full !bg-green-500 !text-white hover:!bg-green-600 transition-colors">
             <Plus size={24} />
           </DialogTrigger>
           <Dialogform />

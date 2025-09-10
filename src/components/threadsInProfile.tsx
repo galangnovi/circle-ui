@@ -52,28 +52,28 @@ export default function ContentThreads() {
                   </div>
                   <span>{thread.created_at && timeAgo(thread.created_at)}</span>
                 </div>
-                <div>
+                <div className="flex flex-col mt-1">
                   <div className="flex justify-start">
-                  <p className="text-white mt-1">{thread.content}</p>
-                </div>
-                <div className="flex justify-center gap-6 -mt-7 text-gray-400 text-sm">
-                    <button
-                        className="flex items-center gap-1 hover:text-red-500 transition-colors !bg-transparent"
-                    >
-                          <Heart
-                        size={18}
-                        className={`${thread.likes_count > 0 ? "fill-red-500 text-red-500" : "text-gray-400"}`}
-                        />
-                        <span>{thread.likes_count}</span>
-                    </button>
-
-                    <button
-                        className="flex items-center gap-1 hover:text-green-500 transition-colors !bg-transparent"
-                    >
-                        <MessageCircle size={18} className="text-gray-400" />
-                        <span>{thread.number_of_replies ? thread.number_of_replies : 0} Replies</span>
-                    </button>
+                    <p className="text-white mt-1">{thread.content}</p>
                   </div>
+                  <div className="flex justify-center gap-6 -mt-7 text-gray-400 text-sm">
+                      <button
+                          className="flex items-center gap-1 hover:text-red-500 transition-colors !bg-transparent"
+                      >
+                            <Heart
+                          size={18}
+                          className={`${thread.likes_count > 0 ? "fill-red-500 text-red-500" : "text-gray-400"}`}
+                          />
+                          <span>{thread.likes_count}</span>
+                      </button>
+
+                      <button
+                          className="flex items-center gap-1 hover:text-green-500 transition-colors !bg-transparent"
+                      >
+                          <MessageCircle size={18} className="text-gray-400" />
+                          <span>{thread.number_of_replies ? thread.number_of_replies : 0} Replies</span>
+                      </button>
+                    </div>
                 </div>
               </div>
             </div>
