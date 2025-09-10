@@ -56,7 +56,7 @@ export default function ContentThreads() {
                   <div className="flex justify-start">
                     <p className="text-white mt-1">{thread.content}</p>
                   </div>
-                  <div className="flex justify-center gap-6 -mt-7 text-gray-400 text-sm">
+                  <div className="flex justify-center gap-6  text-gray-400 text-sm">
                       <button
                           className="flex items-center gap-1 hover:text-red-500 transition-colors !bg-transparent"
                       >
