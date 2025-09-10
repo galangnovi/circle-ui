@@ -89,7 +89,7 @@ export default function FollowTabs() {
   const currentUserId = profile.id 
 
   return (
-    <div className="w-full px-4 mt-4">
+    <div className="w-full px-4 mt-0">
       <div className="w-full mb-2">
           <Link to="/">
               <h2 className="text-3xl flex justify-start items-center text-green-500 font-bold"><MoveLeft/> Follows </h2>

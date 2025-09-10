@@ -31,7 +31,7 @@ export default function ProfilePage() {
 
     return (
         <div className="w-full">
-            <div className="w-full mb-2">
+            <div className="w-full mb-0">
                 <Link to="/">
                     <h2 className="text-3xl flex justify-start items-center text-green-500 font-bold"><MoveLeft/> Profile</h2>
                 </Link>

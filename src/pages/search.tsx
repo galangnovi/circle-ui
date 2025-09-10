@@ -57,7 +57,7 @@ export default function SearchResult() {
   };
 
   return (
-    <div className="w-full px-6 py-4">
+    <div className="w-full px-6 py-0">
       <div className="w-full mb-2">
           <Link to="/">
               <h2 className="text-3xl flex justify-start items-center text-green-500 font-bold"><MoveLeft/> Search User</h2>

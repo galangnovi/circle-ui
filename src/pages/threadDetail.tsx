@@ -215,7 +215,7 @@ export default function ThreadsDetailPage() {
   
 
   return (
-    <div className="w-full bg-black pt-6">
+    <div className="w-full bg-black pt-0">
       <div className="w-full mb-2">
           <Link to="/">
               <h2 className="text-3xl flex justify-start items-center text-green-500 font-bold"><MoveLeft/> Thread Details</h2>
