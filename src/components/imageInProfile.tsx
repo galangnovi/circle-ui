@@ -22,7 +22,7 @@ export default function ImageThreads() {
                     className="w-full h-full object-cover rounded-md"
                     style={{ borderRadius: "5px 5px 5px 5px" }}
                     alt="" />
-                    <div className="mt-2 flex justify-between items-center text-gray-400 text-sm">
+                    <div className="-mt-7 flex justify-between items-center text-gray-400 text-sm">
                         <div
                             className="flex items-center gap-1 hover:!text-red-500 transition-colors !bg-transparent"
                         >
