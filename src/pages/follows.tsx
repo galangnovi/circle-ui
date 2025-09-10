@@ -89,15 +89,15 @@ export default function FollowTabs() {
   const currentUserId = profile.id 
 
   return (
-    <div className="w-full px-4 mt-0">
+    <div className="w-full px-4 mt-0 pb-20 md:pb-0">
       <div className="w-full mb-2">
           <Link to="/">
-              <h2 className="text-3xl flex justify-start items-center text-green-500 font-bold"><MoveLeft/> Follows </h2>
+              <h2 className="text-2xl md:text-3xl flex justify-start items-center text-green-500 font-bold"><MoveLeft size={24} className="mr-2"/> Follows </h2>
           </Link>
       </div>
       <div className="flex !border-b mb-4">
         <p
-          className={`flex-1 py-2 text-center text-sm !focus:outline-none cursor-pointer ${
+          className={`flex-1 py-2 text-center text-xs md:text-sm !focus:outline-none cursor-pointer ${
             activeTab === "followers"
               ? "!text-green-500 !border-b-2 !border-green-500 !font-semibold"
               : "!text-gray-400"
@@ -107,7 +107,7 @@ export default function FollowTabs() {
           Followers
         </p>
         <p
-          className={`flex-1 py-2 text-center text-sm focus:!outline-none cursor-pointer ${
+          className={`flex-1 py-2 text-center text-xs md:text-sm focus:!outline-none cursor-pointer ${
             activeTab === "following"
               ? "text-green-500 !border-b-2 !border-green-500 font-semibold"
               : "text-gray-400"

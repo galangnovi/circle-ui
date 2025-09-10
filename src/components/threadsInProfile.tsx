@@ -17,7 +17,22 @@ export default function ContentThreads() {
     },[])
 
 
+    function timeAgo(dateString?: string) {
+      if (!dateString) return "";
+      const date = new Date(dateString);
+      if (isNaN(date.getTime())) return "";
 
+      const now = new Date();
+      const diff = Math.floor((now.getTime() - date.getTime()) / 1000);
+
+      if (diff < 60) return `${diff} seconds ago`;
+      if (diff < 3600) return `${Math.floor(diff / 60)} minutes ago`;
+      if (diff < 86400) return `${Math.floor(diff / 3600)} hours ago`;
+      if (diff < 604800) return `${Math.floor(diff / 86400)} days ago`;
+      if (diff < 2592000) return `${Math.floor(diff / 604800)} weeks ago`;
+      if (diff < 31104000) return `${Math.floor(diff / 2592000)} months ago`;
+      return `${Math.floor(diff / 31104000)} years ago`;
+    }
     
     return (
         <div className="space-y-6 w-full">
@@ -31,13 +46,14 @@ export default function ContentThreads() {
               />
               <div className="flex-1">
                 <div className="flex justify-between text-sm text-gray-400">
-                  <div>
+                  <div className="flex flex-col">
                     <span className="font-bold mr-0.5 text-white">{thread.user.full_name}</span>
                     <span>@{thread.user.username}</span>
                   </div>
-                  <span>{new Date(thread.created_at).toLocaleTimeString()}</span>
+                  <span>{thread.created_at && timeAgo(thread.created_at)}</span>
                 </div>
-                <div className="flex justify-start">
+                <div>
+                  <div className="flex justify-start">
                   <p className="text-white mt-1">{thread.content}</p>
                 </div>
                 <div className="flex justify-center gap-6 -mt-7 text-gray-400 text-sm">
@@ -58,6 +74,7 @@ export default function ContentThreads() {
                         <span>{thread.number_of_replies ? thread.number_of_replies : 0} Replies</span>
                     </button>
                   </div>
+                </div>
               </div>
             </div>
           </div>

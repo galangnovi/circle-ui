@@ -7,7 +7,7 @@ import { Dialogform } from "./dialog-formThreads";
 export default function Navbar() {
     const {logout} = useAuth()
   return (
-    <aside className="bg-black left-0 top-0 w-[23%]  h-screen px-4 py-6 text-white space-y-6 fixed flex flex-col justify-between">
+    <aside className="hidden md:flex bg-black left-0 top-0 w-[23%]  h-screen px-4 py-6 text-white space-y-6 fixed flex-col justify-between">
       <div>
         <h1 className="!text-4xl sm:!text-6xl font-bold text-green-500 mb-9">circle</h1>
       <nav className="space-y-5 mb-9">

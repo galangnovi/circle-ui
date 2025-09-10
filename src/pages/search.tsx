@@ -57,10 +57,10 @@ export default function SearchResult() {
   };
 
   return (
-    <div className="w-full px-6 py-0">
+    <div className="w-full px-4 md:px-6 py-0 pb-20 md:pb-0">
       <div className="w-full mb-2">
           <Link to="/">
-              <h2 className="text-3xl flex justify-start items-center text-green-500 font-bold"><MoveLeft/> Search User</h2>
+              <h2 className="text-2xl md:text-3xl flex justify-start items-center text-green-500 font-bold"><MoveLeft size={24} className="mr-2"/> Search User</h2>
           </Link>
       </div>
       <div className="relative mb-4">
@@ -69,27 +69,27 @@ export default function SearchResult() {
           placeholder="Search users..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          className="!bg-[#272727] text-white border border-neutral-700 rounded-full"
+          className="!bg-[#272727] text-white border border-neutral-700 rounded-full text-sm md:text-base"
         />
       </div>
 
       {results.length > 0 && (
-        <ul className="space-y-4">
+        <ul className="space-y-3 md:space-y-4">
           {results.map((user) => (
-            <li key={user.id} className="flex items-center justify-between">
+            <li key={user.id} className="flex items-center justify-between p-3 bg-[#1a1a1a] rounded-lg shadow-md">
               <div className="flex items-center space-x-3">
                 <img
                   src={user.avatar}
                   alt={user.username}
-                  className="w-10 h-10 rounded-full object-cover"
+                  className="w-8 h-8 md:w-10 md:h-10 rounded-full object-cover"
                 />
                 <div className="flex flex-col items-start">
-                  <p className="text-white font-semibold">{user.name}</p>
+                  <p className="text-white font-semibold text-sm md:text-base">{user.name}</p>
                   <p className="text-neutral-400 text-xs">@{user.username}</p>
                   <p className="text-neutral-400 text-xs">{user.follower} Followers</p>
                 </div>
               </div>
-              <button onClick={()=> handleFollowToggle(user.id, user.is_following)} className="text-sm px-4 py-1 !bg-gray-800 text-white rounded-full font-semibold hover:bg-gray-300 transition">
+              <button onClick={()=> handleFollowToggle(user.id, user.is_following)} className="text-xs md:text-sm px-3 py-1 md:px-4 md:py-1 !bg-gray-800 text-white rounded-full font-semibold hover:bg-gray-300 transition-colors">
                 {user.is_following ? "Followed":"Follow"}
               </button>
             </li>
@@ -98,7 +98,7 @@ export default function SearchResult() {
       )}
 
       {results.length === 0 && (
-        <p className="text-neutral-500 mt-6 text-center">No users found.</p>
+        <p className="text-neutral-500 mt-6 text-center text-sm md:text-base">No users found.</p>
       )}
     </div>
   )

@@ -93,12 +93,13 @@ export default function Home() {
       const now = new Date();
       const diff = Math.floor((now.getTime() - date.getTime()) / 1000); // selisih dalam detik
 
-      if (diff < 60) return `${diff} detik yang lalu`;
-      if (diff < 3600) return `${Math.floor(diff / 60)} menit yang lalu`;
-      if (diff < 86400) return `${Math.floor(diff / 3600)} jam yang lalu`;
-      if (diff < 2592000) return `${Math.floor(diff / 86400)} hari yang lalu`;
-      if (diff < 31104000) return `${Math.floor(diff / 2592000)} bulan yang lalu`;
-      return `${Math.floor(diff / 31104000)} tahun yang lalu`;
+      if (diff < 60) return `${diff} seconds ago`;
+      if (diff < 3600) return `${Math.floor(diff / 60)} minutes ago`;
+      if (diff < 86400) return `${Math.floor(diff / 3600)} hours ago`;
+      if (diff < 604800) return `${Math.floor(diff / 86400)} days ago`;
+      if (diff < 2592000) return `${Math.floor(diff / 604800)} weeks ago`;
+      if (diff < 31104000) return `${Math.floor(diff / 2592000)} months ago`;
+      return `${Math.floor(diff / 31104000)} years ago`;
   }
 
   // useEffect(() => {
@@ -119,28 +120,28 @@ export default function Home() {
   });
 
   return (
-    <div className="min-h-screen w-full bg-black pt-0">
+    <div className="min-h-screen w-full bg-black pt-0 pb-20 md:pb-0">
       <div className="w-full mb-2">
-        <h2 className="text-3xl flex justify-start text-green-500 font-bold">Home</h2>
+        <h2 className="text-2xl md:text-3xl flex justify-start text-green-500 font-bold">Home</h2>
       </div>
       <Dialog>
-        <DialogTrigger className="flex justify-between items-center w-full rounded-lg mb-6 !bg-transparent !border !border-green-500" style={{ borderRadius: "20px 20px 20px 20px" }}>
-          <div className="flex items-center w-full ">
+        <DialogTrigger className="flex justify-between items-center w-full rounded-lg mb-6 !bg-transparent !border !border-green-500 p-3" style={{ borderRadius: "20px 20px 20px 20px" }}>
+          <div className="flex items-center w-full">
             <img
               src={profile.photo_profile}
               alt="profile"
-              className="w-10 h-10 rounded-full object-cover mr-2"
+              className="w-8 h-8 md:w-10 md:h-10 rounded-full object-cover mr-2"
             />
             <input
-              className="w-full bg-transparent text-white  outline-none"
+              className="w-full bg-transparent text-white outline-none text-sm md:text-base"
               placeholder="What is happening?!"
             />
           </div>
-          <div className="flex justify-end mt-3">
+          <div className="flex justify-end items-center gap-2">
             <button className="!bg-transparent">
-              <ImagePlus className="!bg-transparent text-green-400" />
+              <ImagePlus className="!bg-transparent text-green-400" size={20} />
             </button>
-            <button className="!bg-green-600 text-white px-4 py-2 !rounded-full hover:bg-green-700">
+            <button className="!bg-green-600 text-white px-3 py-1 md:px-4 md:py-2 !rounded-full hover:bg-green-700 text-sm md:text-base">
               Post
             </button>
           </div>
@@ -148,41 +149,41 @@ export default function Home() {
         <Dialogform />
       </Dialog>
 
-      <div className="space-y-6 w-full">
+      <div className="space-y-4 md:space-y-6 w-full">
         {threads.map((thread) => (
-          <div key={thread.id} className="bg-[#1a1a1a] p-4 rounded-lg " style={{ borderRadius: "6px 6px 6px 6px" }}>
+          <div key={thread.id} className="bg-[#1a1a1a] p-3 md:p-4 rounded-lg shadow-md" style={{ borderRadius: "12px" }}>
             <div className="flex items-start space-x-3">
               <img
                 src={thread.user.photo_profile}
                 alt="profile"
-                className="w-10 h-10 rounded-full object-cover"
+                className="w-8 h-8 md:w-10 md:h-10 rounded-full object-cover"
               />
               <div className="flex-1">
-                <div className="flex justify-between text-sm text-gray-400">
-                  <div className="flex flex-col justify-start items-start gap-1 sm:!flex-row">
-                    <span className="font-bold mr-0.5 text-white">{thread.user.full_name}</span>
-                    <span>@{thread.user.username}</span>
+                <div className="flex justify-between text-xs md:text-sm text-gray-400">
+                  <div className="flex flex-col justify-start items-start gap-1 md:flex-row">
+                    <span className="font-bold mr-0.5 text-white text-sm md:text-base">{thread.user.full_name}</span>
+                    <span className="text-xs md:text-sm">@{thread.user.username}</span>
                   </div>
-                  <span>{timeAgo(thread.created_at)}</span>
+                  <span className="text-xs md:text-sm">{timeAgo(thread.created_at)}</span>
                 </div>
                 <div className="flex justify-start">
-                  <p className="text-white mt-1">{thread.content}</p>
+                  <p className="text-white mt-1 text-sm md:text-base">{thread.content}</p>
                 </div>
                 {thread.image && (
                   <img
                     src={thread.image}
                     alt="post"
-                    className="rounded-lg mt-2 h-auto w-full xl:w-[95%] object-cover"
-                    style={{ borderRadius: "6px 6px 6px 6px" }}
+                    className="rounded-lg mt-2 h-auto w-full object-cover"
+                    style={{ borderRadius: "12px" }}
                   />
                 )}
-                <div className="flex space-x-4 text-gray-500 text-sm mt-3">
+                <div className="flex space-x-4 text-gray-500 text-xs md:text-sm mt-3">
                   <button
                     onClick={() => handleLike(thread.id)}
-                    className="p-0 w-fit flex items-center gap-1 !bg-transparent"
+                    className="p-0 w-fit flex items-center gap-1 !bg-transparent hover:text-red-400 transition-colors"
                   >
                     <Heart
-                      size={18}
+                      size={16}
                       className={`${
                         likedThreadIds.includes(thread.id)
                           ? "fill-red-500 text-red-500"
@@ -194,9 +195,9 @@ export default function Home() {
 
                   <button
                     onClick={() => navigate(`/thread/${thread.id}`)}
-                    className="flex items-center gap-1 hover:underline !bg-transparent"
+                    className="flex items-center gap-1 hover:underline !bg-transparent hover:text-green-400 transition-colors"
                   >
-                    <MessageCircle size={18} className="text-gray-400" />
+                    <MessageCircle size={16} className="text-gray-400" />
                     <span>{thread.number_of_replies} Replies</span>
                   </button>
                 </div>
