@@ -22,23 +22,23 @@ export default function ImageThreads() {
                     className="w-full h-full object-cover rounded-md"
                     style={{ borderRadius: "5px 5px 5px 5px" }}
                     alt="" />
-                    <div className="flex justify-center gap-6 -mt-7 text-gray-400 text-sm">
-                        <button
-                            className="flex items-center gap-1 hover:text-red-500 transition-colors !bg-transparent"
+                    <div className="mt-2 flex justify-between items-center text-gray-400 text-sm">
+                        <div
+                            className="flex items-center gap-1 hover:!text-red-500 transition-colors !bg-transparent"
                         >
                             <Heart
                             size={18}
                             className={`${I.likes_count > 0 ? "fill-red-500 text-red-500" : "text-gray-400"}`}
                             />
                             <span>{I.likes_count}</span>
-                        </button>
+                        </div>
 
-                        <button
+                        <div
                             className="flex items-center gap-1 hover:text-green-500 transition-colors !bg-transparent"
                         >
                             <MessageCircle size={18} className="text-gray-400" />
                             <span>{I.number_of_replies ? I.number_of_replies : 0} Replies</span>
-                        </button>
+                        </div>
                     </div>
                     
                 </div>
