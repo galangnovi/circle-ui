@@ -75,7 +75,7 @@ export default function FollowTabs() {
         </div>
         {user.id !== currentUserId && (
           <Button
-          className="!bg-green-500 hover:!bg-green-400  text-black"
+          className="!bg-gray-800"
             variant={user.is_following ? "secondary" : "secondary"}
             onClick={() => handleFollowToggle(user.id, user.is_following)}
           >
