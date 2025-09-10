@@ -12,6 +12,7 @@ export default function ImageThreads() {
         const fetchImage = async () => {
             const res = await api.get("/thread/image")
             setImageData(res.data.data)
+            console.log(res.data.data)
         };
         fetchImage()
     },[])
@@ -40,7 +41,7 @@ export default function ImageThreads() {
                             <MessageCircle size={18} className="text-gray-400" />
                             <span>{I.number_of_replies ? I.number_of_replies : 0} Replies</span>
                         </button>
-                        </div>
+                    </div>
                     
                 </div>
             )) }
