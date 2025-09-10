@@ -38,14 +38,14 @@ export default function ContentThreads() {
         <div className="space-y-6 w-full">
         {threadsByUser.map((thread) => (
           <div key={thread.id} onClick={() => navigate(`/thread/${thread.id}`)} className="bg-[#1a1a1a] p-4 rounded-lg" style={{ borderRadius: "6px 6px 6px 6px" }}>
-            <div className="flex items-start space-x-3">
+            <div className="flex items-start space-x-3 w-full">
               <img
                 src={thread.user.photo_profile}
                 alt="profile"
                 className="w-10 h-10 rounded-full object-cover"
               />
-              <div className="flex flex-col">
-                <div className="flex flex-col text-sm text-gray-400">
+              <div className="flex flex-col w-full">
+                <div className="flex flex-col items-start max-w-full text-sm text-gray-400">
                   <div className="flex justify-between gap-1">
                     <span className="font-bold text-white">{thread.user.full_name}</span>
                     <span>{thread.created_at && timeAgo(thread.created_at)}</span>
