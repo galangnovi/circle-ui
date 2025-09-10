@@ -173,15 +173,18 @@ export default function ThreadsDetailPage() {
       }
     };
 
-    function formatDateIndo(dateString: string) {
-      const date = new Date(dateString);
+    function formatDateIndo(dateString?: string) {
+      if (!dateString) return ""; // kalau undefined/null, return kosong
 
-      const time = new Intl.DateTimeFormat("id-ID", {
+      const date = new Date(dateString);
+      if (isNaN(date.getTime())) return ""; // kalau invalid date
+
+      const time = new Intl.DateTimeFormat("en-US", {
         timeZone: "Asia/Jakarta",
         hour: "2-digit",
         minute: "2-digit",
-        hour12: true, // biar ada am/pm
-      }).format(date);
+        hour12: true,
+      }).format(date).toLowerCase();
 
       const dayMonthYear = new Intl.DateTimeFormat("id-ID", {
         timeZone: "Asia/Jakarta",
@@ -190,13 +193,16 @@ export default function ThreadsDetailPage() {
         year: "numeric",
       }).format(date);
 
-      return `${time} - ${dayMonthYear}`;
+      return `${time} ${dayMonthYear}`;
     }
 
-    function timeAgo(dateString: string) {
+    function timeAgo(dateString?: string) {
+      if (!dateString) return "";
       const date = new Date(dateString);
+      if (isNaN(date.getTime())) return "";
+
       const now = new Date();
-      const diff = Math.floor((now.getTime() - date.getTime()) / 1000); // selisih dalam detik
+      const diff = Math.floor((now.getTime() - date.getTime()) / 1000);
 
       if (diff < 60) return `${diff} detik yang lalu`;
       if (diff < 3600) return `${Math.floor(diff / 60)} menit yang lalu`;
@@ -204,7 +210,7 @@ export default function ThreadsDetailPage() {
       if (diff < 2592000) return `${Math.floor(diff / 86400)} hari yang lalu`;
       if (diff < 31104000) return `${Math.floor(diff / 2592000)} bulan yang lalu`;
       return `${Math.floor(diff / 31104000)} tahun yang lalu`;
-  }
+    }
 
   
 
@@ -242,7 +248,7 @@ export default function ThreadsDetailPage() {
                 />
               )}
               <div className="flex items-start mt-3 gap-2">
-                <span>{formatDateIndo(thread.created_at)}</span>
+                <span>{thread.created_at && formatDateIndo(thread.created_at)}</span>
               </div>
               <div className="flex space-x-4 text-gray-500 text-sm">
                 <button onClick={() => handleLikeThread(thread.id)} className='!bg-transparent'>
@@ -260,7 +266,7 @@ export default function ThreadsDetailPage() {
         </div>
       </div>
 
-      <div className="flex justify-between items-center !border !border-green-500 mt-4 w-full rounded-lg mb-6" style={{ borderRadius: "6px 6px 6px 6px" }}>
+      <div className="flex justify-between items-center !border !border-green-500 mt-4 w-full p-6 rounded-lg mb-6" style={{ borderRadius: "6px 6px 6px 6px" }}>
         <div className="flex items-center w-full">
           <img
             src={profile.photo_profile}
@@ -313,7 +319,7 @@ export default function ThreadsDetailPage() {
                     <span className="font-bold mr-0.5">{reply.user.full_name}</span>
                     <span>@{reply.user.username}</span>
                   </div>
-                  <span>{timeAgo(reply.created_at)}</span>
+                  <span>{reply.created_at && timeAgo(reply.created_at)}</span>
                 </div>
                 <div className='flex justify-start'>
                     <p className="text-white mt-1">{reply.content}</p>
