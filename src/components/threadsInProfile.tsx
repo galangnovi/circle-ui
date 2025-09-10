@@ -45,13 +45,13 @@ export default function ContentThreads() {
                 className="w-10 h-10 rounded-full object-cover"
               />
               <div className="flex flex-col">
-                <div className="flex justify-between items-center text-sm text-gray-400">
-                  <div className="flex items-center gap-1">
+                <div className="flex flex-col text-sm text-gray-400">
+                  <div className="flex justify-between gap-1">
                     <span className="font-bold text-white">{thread.user.full_name}</span>
-                    <span>@{thread.user.username}</span>
+                    <span>{thread.created_at && timeAgo(thread.created_at)}</span>
                   </div>
-
-                  <span>{thread.created_at && timeAgo(thread.created_at)}</span>
+                  <span>@{thread.user.username}</span>
+                  
                 </div>
                 <div className="flex flex-col mt-1">
                   <div className="flex justify-start">
